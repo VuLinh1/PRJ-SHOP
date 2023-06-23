@@ -145,7 +145,9 @@
                                     <div class="text-center py-4">
                                         <a class="h6 text-decoration-none product-name" href="">${p.productName}</a>
                                         <div class="d-flex align-items-center justify-content-center mt-2">
-                                            <h5>${p.productPrice}</h5>
+                                            <h5>
+                                                <span class="price" data-price="${p.productPrice}">${p.productPrice}</span> VND
+                                            </h5>
                                             <!--<h6 class="text-muted ml-2"><del>$123.00</del></h6>-->
                                         </div>
                                         <div class="d-flex align-items-center justify-content-center mb-1">
@@ -234,6 +236,14 @@
                 });
             });
         </script>
+        <script>
+    const prices = document.querySelectorAll('.price');
+    prices.forEach(price => {
+        const priceValue = price.getAttribute('data-price');
+        const formattedPrice = priceValue.slice(0, 3) + '.' + priceValue.slice(2);
+        price.textContent = formattedPrice;
+    });
+</script>
         <script src="assets/js/price.js"></script>
     </body>
 

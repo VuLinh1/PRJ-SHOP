@@ -88,7 +88,9 @@
                             </div>
                             <small class="pt-1">(99 Reviews)</small>
                         </div>
-                        <h3 class="font-weight-semi-bold mb-4">${requestScope.product.productPrice} VND</h3>
+                        <h5>
+                            <span class="price" data-price="${product.productPrice}">${product.productPrice} </span> VND
+                        </h5>
                         <!--                        <div class="description">
                                                     <p class="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit
                                                         clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea
@@ -464,7 +466,14 @@
         <!-- Contact Javascript File -->
         <script src="assets/mail/jqBootstrapValidation.min.js"></script>
         <script src="assets/mail/contact.js"></script>
-
+  <script>
+    const prices = document.querySelectorAll('.price');
+    prices.forEach(price => {
+        const priceValue = price.getAttribute('data-price');
+        const formattedPrice = priceValue.slice(0, 3) + '.' + priceValue.slice(2);
+        price.textContent = formattedPrice;
+    });
+</script>
         <!-- Template Javascript -->
         <script src="assets/js/main.js"></script>
     </body>

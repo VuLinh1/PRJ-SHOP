@@ -21,7 +21,7 @@ public class ProductImgDetailDAO {
 
     public List<ProductImgDetail> getAll(int productId) {
 
-        String sql = "select * from ProductImgDetail Where productId = ?";//
+        String sql = "select * from ProductImgDetail Where productId = ?    ";//
 
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             ps.setObject(1, productId);
